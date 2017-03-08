@@ -5,10 +5,19 @@
   <title>Madlib Display</title>
 </head>
 <body>
-
-  <p>There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. 
+  <p>There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab, next to 
+    {% if length == 2 %}
+      {{ classmates[0] }} and {{ classmates[1] }}.
+    {% elif length > 2 %}
+      {% for classmate in classmates[:-1] %}
+        {{classmate}},
+      {% endfor %}
+      and {{classmates[-1]}}.
+    {% else %}
+      {{ classmates[0] }}.
+    {% endif %} 
       When {{ person }} went to pick it up, it burst into flames in a totally 
-      {{ adjective }} way.</p>
+      {{ adjective }} way. </p>
 
 </body>
 </html>

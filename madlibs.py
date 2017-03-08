@@ -58,9 +58,14 @@ def show_madlib():
     person = request.args.get("person")
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
+    classmates = request.args.getlist("classmate")
+    length_of_classmates = len(classmates)
+    # chosen_classmates = []
+    
 
+    print classmates
     return render_template("madlib.html", color=color, person=person, noun=noun, 
-                            adjective=adjective)
+                            adjective=adjective, classmates=classmates, length=length_of_classmates)
 
 
 
