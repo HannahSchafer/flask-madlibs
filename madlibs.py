@@ -38,6 +38,22 @@ def greet_person():
                            person=player,
                            compliment=compliment)
 
+@app.route('/game')
+def show_mad_lib_form():
+    """Gets user's response regarding whether or not they want to play madlibs"""
+ 
+    game_response = request.args.get("game-response")
+    
+    if game_response == "no":
+        return render_template("goodbye.html")
+
+    else:
+        return render_template("game.html")
+
+
+
+
+
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
